@@ -49,7 +49,9 @@ export class EditorComponent extends BaseEditor implements ControlValueAccessor 
 
   @Input('model')
   set model(model: NgxEditorModel) {
+    console.log("Aakash testing");
     this.options.model = model;
+    this._options = Object.assign({}, this.config.defaultOptions, this.options)
     if (this._editor) {
       this._editor.dispose();
       this.initMonaco(this.options);
